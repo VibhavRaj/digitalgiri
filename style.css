@@ -312,7 +312,7 @@ form .button {
     width: auto;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 568px) {
  nav ul li {
     padding: 0px;
   }
