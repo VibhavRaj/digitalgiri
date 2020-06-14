@@ -9,6 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
   </head>
   <body>
     <section class="banner">
@@ -70,35 +72,43 @@
       <div class="help-content">
         <div class="feature">
           <img src="./img/image (4).jpeg" width="100%" height="auto" alt="" />
-          <h5>Coaching</h5>
-          <p>
-            Magnetized strongly enough pre vending domain overeus all initial
-            results to estimate.
-          </p>
+          <div>
+            <h5>Coaching</h5>
+            <p>
+              Magnetized strongly enough pre vending domain overeus all initial
+              results to estimate.
+            </p>
+          </div>
         </div>
         <div class="feature">
           <img src="./img/image (1).jpeg" width="100%" height="auto" alt="" />
-          <h5>Consultation</h5>
-          <p>
-            Magnetized strongly enough pre vending domain overeus all initial
-            results to estimate.
-          </p>
+          <div>
+            <h5>Consultation</h5>
+            <p>
+              Magnetized strongly enough pre vending domain overeus all initial
+              results to estimate.
+            </p>
+          </div>
         </div>
         <div class="feature">
           <img src="./img/image (2).jpeg" width="100%" height="auto" alt="" />
-          <h5>Self Development</h5>
-          <p>
-            Magnetized strongly enough pre vending domain overeus all initial
-            results to estimate.
-          </p>
+          <div>
+            <h5>Self Development</h5>
+            <p>
+              Magnetized strongly enough pre vending domain overeus all initial
+              results to estimate.
+            </p>
+          </div>
         </div>
         <div class="feature">
           <img src="./img/image (3).jpeg" width="100%" height="auto" alt="" />
-          <h5>Life Programs</h5>
-          <p>
-            Magnetized strongly enough pre vending domain overeus all initial
-            results to estimate.
-          </p>
+          <div>
+            <h5>Life Programs</h5>
+            <p>
+              Magnetized strongly enough pre vending domain overeus all initial
+              results to estimate.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -208,23 +218,56 @@
           <li>Disclamer</li>
           <li>Privacy</li>
         </ul>
-        <form>
-          <input type="text" placeholder="Enter Name" class="input" />
-          <input type="text" placeholder="Enter Email" class="input" />
-          <input type="text" placeholder="Enter phone" class="input" />
+        <form id="test-form">
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter Name"
+            class="input"
+          />
+          <input
+            type="text"
+            name="email"
+            placeholder="Enter Email"
+            class="input"
+          />
+          <input
+            type="text"
+            name="number"
+            placeholder="Enter phone"
+            class="input"
+          />
           <textarea
             rows="4"
+            name="message"
             type="text"
             placeholder="Enter Message"
             class="input"
           ></textarea>
           <div>
-            <button class="button primary">Submit</button>
-            <button class="button secondary">Reset</button>
+            <button class="button primary" id="submit-form">Submit</button>
+            <button class="button secondary" value="reset">Reset</button>
           </div>
         </form>
+        <!--https://script.google.com/macros/s/AKfycbyJGbLPwOiRl9AKyFUAbrsap-wskb9gV8D4CNHoR4bJjfwgaKKN/exec-->
       </div>
       <span>Copyright 2020 - digitalgiri.in - All rights reserved</span>
     </footer>
+    <script type="text/javascript">
+      var $form = $("form#test-form"),
+        url =
+          "https://script.google.com/macros/s/AKfycbyJGbLPwOiRl9AKyFUAbrsap-wskb9gV8D4CNHoR4bJjfwgaKKN/exec";
+
+      $("#submit-form").on("click", function (e) {
+        e.preventDefault();
+        var jqxhr = $.ajax({
+          url: url,
+          method: "GET",
+          dataType: "json",
+          data: $form.serializeObject(),
+        }).success();
+        // do something
+      });
+    </script>
   </body>
 </html>
